@@ -94,7 +94,7 @@ buttons.addEventListener('click', (e) => {
                 input.value *= -1;
             }
             else {
-                input.value += target.textContent;
+                if (!input.value.includes('.')) input.value += target.textContent;
             }
         }
         else {   
