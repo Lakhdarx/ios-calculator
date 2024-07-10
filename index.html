@@ -9,37 +9,37 @@
 <body>
     <main id="main">
         <form class="calc-display">
-            <input id="calc-input" type="number" value="0" disabled>
+            <input id="calc-input" type="text" value='0' disabled>
         </form>
         <div class="calc-buttons">
             <div class="row">
                 <button id="clear" class="button gray" type="button">AC</button>
                 <button id="sign" class="button gray" type="button">+/-</button>
-                <button id="mod" class="button gray" type="button">%</button>
-                <button id="divide" class="button orange" type="button">÷</button>
+                <button id="mod" class="button gray operator" type="button">%</button>
+                <button id="divide" class="button orange operator" type="button">÷</button>
             </div>
             <div class="row">
-                <button id="s7" class="button dark-gray" type="button">7</button>
-                <button id="e8" class="button dark-gray" type="button">8</button>
-                <button id="n9" class="button dark-gray" type="button">9</button>
-                <button id="multiply" class="button orange" type="button">x</button>
+                <button id="s7" class="button dark-gray number" type="button">7</button>
+                <button id="e8" class="button dark-gray number" type="button">8</button>
+                <button id="n9" class="button dark-gray number" type="button">9</button>
+                <button id="multiply" class="button orange operator" type="button">x</button>
             </div>
             <div class="row">
-                <button id="f4" class="button dark-gray" type="button">4</button>
-                <button id="f5" class="button dark-gray" type="button">5</button>
-                <button id="s6" class="button dark-gray" type="button">6</button>
-                <button id="minus" class="button orange" type="button">-</button>
+                <button id="f4" class="button dark-gray number" type="button">4</button>
+                <button id="f5" class="button dark-gray number" type="button">5</button>
+                <button id="s6" class="button dark-gray number" type="button">6</button>
+                <button id="minus" class="button orange operator" type="button">-</button>
             </div>
             <div class="row">
-                <button id="o1" class="button dark-gray" type="button">1</button>
-                <button id="t2" class="button dark-gray" type="button">2</button>
-                <button id="t3" class="button dark-gray" type="button">3</button>
-                <button id="plus" class="button orange" type="button">+</button>
+                <button id="o1" class="button dark-gray number" type="button">1</button>
+                <button id="t2" class="button dark-gray number" type="button">2</button>
+                <button id="t3" class="button dark-gray number" type="button">3</button>
+                <button id="plus" class="button orange operator" type="button">+</button>
             </div>
             <div class="row">
-                <button id="z0" class="button dark-gray double" type="button">0</button>
+                <button id="z0" class="button dark-gray double number" type="button">0</button>
                 <button id="dot" class="button dark-gray" type="button">.</button>
-                <button id="equal" class="button orange" type="button">=</button>
+                <button id="equal" class="button orange operator" type="button">=</button>
             </div>
         </div>
     </main>
