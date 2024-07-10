@@ -79,44 +79,54 @@ const buttons = document.querySelector('.calc-buttons');
 
 buttons.addEventListener('click', (e) => {
     let target = e.target;
-    if (target.id !== '') {
-        if (target.classList.contains('number')) {    
-            displayValue(target.textContent);
+    if (input.value === 'ERROR') {
+        if (target.id === 'clear') {
+            input.value = 0;
+            operand1 = '';
+            operand2 = '';
+            operator = '';
         }
-        else if (!target.classList.contains('operator')) {  
-            if (target.id === 'clear') {
-                input.value = 0;
-                operand1 = '';
-                operand2 = '';
-                operator = '';
+    }
+    else {
+        if (target.id !== '') {
+            if (target.classList.contains('number')) {    
+                displayValue(target.textContent);
             }
-            else if (target.id === 'sign') {
-                input.value *= -1;
+            else if (!target.classList.contains('operator')) {  
+                if (target.id === 'clear') {
+                    input.value = 0;
+                    operand1 = '';
+                    operand2 = '';
+                    operator = '';
+                }
+                else if (target.id === 'sign') {
+                    input.value *= -1;
+                }
+                else {
+                    if (!input.value.includes('.')) input.value += target.textContent;
+                }
             }
-            else {
-                if (!input.value.includes('.')) input.value += target.textContent;
+            else {   
+                if (target.id === 'plus') {
+                    handleOperator('+');
+                }
+                else if (target.id === 'minus') {
+                    handleOperator('-');
+                }
+                else if (target.id === 'multiply') {
+                    handleOperator('x');
+                }
+                else if (target.id === 'divide') {
+                    handleOperator('÷');
+                }
+                else if (target.id === 'mod') {
+                    handleOperator('%');
+                }
+                else {
+                    handleOperator('=');
+                }
+                
             }
-        }
-        else {   
-            if (target.id === 'plus') {
-                handleOperator('+');
-            }
-            else if (target.id === 'minus') {
-                handleOperator('-');
-            }
-            else if (target.id === 'multiply') {
-                handleOperator('x');
-            }
-            else if (target.id === 'divide') {
-                handleOperator('÷');
-            }
-            else if (target.id === 'mod') {
-                handleOperator('%');
-            }
-            else {
-                handleOperator('=');
-            }
-            
         }
     }
 });
