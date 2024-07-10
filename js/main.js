@@ -28,13 +28,15 @@ function modulus(a, b) {
 function operate(num1, num2, operator) {
     num1 = Number(num1); 
     num2 = Number(num2);
+    let result;
+    if (operator === '+') result = add(num1,num2);
+    else if (operator === '-') result = subtract(num1,num2);
+    else if (operator === '%') result = modulus(num1,num2);
+    else if (operator === '÷') result = divide(num1, num2);
+    else result = multiply(num1, num2);
 
-    if (operator === '+') return add(num1,num2);
-    else if (operator === '-') return subtract(num1,num2);
-    else if (operator === '%') return modulus(num1,num2);
-    else if (operator === '÷') return divide(num1, num2);
-    else return multiply(num1, num2);
-}
+    return (Math.round(result * 1000) / 1000);          
+} 
 
 
 
