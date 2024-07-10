@@ -37,10 +37,6 @@ function operate(num1, num2, operator) {
 }
 
 
-//
-const input = document.querySelector('#calc-input');
-const buttons = document.querySelector('.calc-buttons');
-
 
 function displayValue(x) {
     if (operator !== '' && operand2 === '') {
@@ -52,6 +48,34 @@ function displayValue(x) {
         else input.value += x;
     }
 }
+
+function handleOperator(operation) {
+    if (operand2 !== '' && operation !== '=') {
+        operand2 = input.value;
+        input.value = 0;
+        displayValue(operate(operand1,operand2,operator));
+        operator = operation;
+        operand1 = input.value;
+        operand2 = '';
+    }
+    else if (operation === '=') {
+        operand2 = input.value;
+        input.value = 0;
+        displayValue(operate(operand1,operand2,operator));
+        operand1 = ''; 
+        operand2 = '';
+        operator = '';
+    }
+    else {
+        operator = operation;
+        operand1 = input.value;
+    }
+}
+
+
+const input = document.querySelector('#calc-input');
+const buttons = document.querySelector('.calc-buttons');
+
 
 buttons.addEventListener('click', (e) => {
     let target = e.target;
@@ -75,32 +99,22 @@ buttons.addEventListener('click', (e) => {
         }
         else {   
             if (target.id === 'plus') {
-                operator = '+';
-                operand1 = input.value;
+                handleOperator('+');
             }
             else if (target.id === 'minus') {
-                operator = '-';
-                operand1 = input.value;
+                handleOperator('-');
             }
             else if (target.id === 'multiply') {
-                operator = 'x';
-                operand1 = input.value;
+                handleOperator('x');
             }
             else if (target.id === 'divide') {
-                operator = '÷';
-                operand1 = input.value;
+                handleOperator('÷');
             }
             else if (target.id === 'mod') {
-                operator = '%';
-                operand1 = input.value;
+                handleOperator('%');
             }
             else {
-                operand2 = input.value;
-                input.value = 0;
-                displayValue(operate(operand1,operand2,operator));
-                operand1 = ''; 
-                operand2 = '';
-                operator = '';
+                handleOperator('=');
             }
             
         }
