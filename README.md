@@ -1,4 +1,4 @@
-<h1>IOS Calculator Clone</h1>
+<h1>Web IOS Calculator</h1>
 <H3>Features</h3>
 
 <ul>
