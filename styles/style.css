@@ -13,15 +13,16 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #333333;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    flex-direction: column;
 }
 
 #main {
+    margin: 10px;
     border: 2px solid #ededed;
     border-radius: 50px;
     background-color: #000000;
@@ -112,3 +113,6 @@ body {
     font-size: 64px;
 }
 
+a {
+    font-size: 45px;
+}

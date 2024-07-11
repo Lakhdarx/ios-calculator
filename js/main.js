@@ -1,3 +1,5 @@
+// Fix the issue where when u press = 
+
 let operand1 = '';
 let operand2 = '';
 let operator = '';
@@ -35,7 +37,8 @@ function operate(num1, num2, operator) {
     else if (operator === '÷') result = divide(num1, num2);
     else result = multiply(num1, num2);
 
-    return (Math.round(result * 1000) / 1000);          
+    if (typeof result !== 'string') return (Math.round(result * 1000) / 1000);         
+    else return result;
 } 
 
 
