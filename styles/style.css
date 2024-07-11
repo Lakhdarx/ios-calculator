@@ -87,10 +87,17 @@ body {
 .orange {
     background-color: #f69906;
     color: #ffffff;
-    transition: 0.1s;
+    transition: all 0.4s;
 }
 
+#equal {
+    transition: all 0.2s;
+}
 
+#equal:active {
+    background-color: #ffffff;
+    color: #f69906;
+}
 
 
 
