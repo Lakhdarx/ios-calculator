@@ -1,5 +1,3 @@
-// Fix the issue where when u press = 
-
 let operand1 = '';
 let operand2 = '';
 let operator = '';
@@ -77,6 +75,33 @@ function handleOperator(operation) {
     }
 }
 
+// get operators
+const plusBtn = document.querySelector('#plus');
+const minusBtn = document.querySelector('#minus');
+const divideBtn = document.querySelector('#divide');
+const multiplyBtn = document.querySelector('#multiply');
+
+// Resets orange operators default stylings, excluding the = and % operators
+function resetOrangeOperator() {
+    plusBtn.style.backgroundColor = '#f69906';
+    plusBtn.style.color = '#ffffff';
+
+    minusBtn.style.backgroundColor = '#f69906';
+    minusBtn.style.color = '#ffffff';
+    
+    divideBtn.style.backgroundColor = '#f69906';
+    divideBtn.style.color = '#ffffff';
+
+    multiplyBtn.style.backgroundColor = '#f69906';
+    multiplyBtn.style.color = '#ffffff';
+}
+// Alternative styling to operator buttons when clicked, excluding the = and % operators
+function colorOrangeOperator(button) {
+    resetOrangeOperator();
+    button.style.backgroundColor = '#ffffff';
+    button.style.color = '#f69906';
+}
+
 
 const input = document.querySelector('#calc-input');
 const buttons = document.querySelector('.calc-buttons');
@@ -99,6 +124,7 @@ buttons.addEventListener('click', (e) => {
             }
             else if (!target.classList.contains('operator')) {  
                 if (target.id === 'clear') {
+                    resetOrangeOperator();
                     input.value = 0;
                     operand1 = '';
                     operand2 = '';
@@ -113,21 +139,27 @@ buttons.addEventListener('click', (e) => {
             }
             else {   
                 if (target.id === 'plus') {
+                    colorOrangeOperator(target);
                     handleOperator('+');
                 }
                 else if (target.id === 'minus') {
+                    colorOrangeOperator(target);
                     handleOperator('-');
                 }
                 else if (target.id === 'multiply') {
+                    colorOrangeOperator(target);
                     handleOperator('x');
                 }
                 else if (target.id === 'divide') {
+                    colorOrangeOperator(target);
                     handleOperator('÷');
                 }
                 else if (target.id === 'mod') {
+                    resetOrangeOperator();
                     handleOperator('%');
                 }
                 else {
+                    resetOrangeOperator();
                     handleOperator('=');
                 }
                 
