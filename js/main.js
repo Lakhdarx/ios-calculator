@@ -172,3 +172,66 @@ buttons.addEventListener('click', (e) => {
 
 
 
+// Keyboard support
+
+
+
+const display = document.querySelector('.calc-display');
+display.focus();
+
+display.addEventListener('keydown', (e) => {
+    let key = e.key;
+    if (input.value === 'ERROR') {
+        if (key === "Backspace") {
+            input.value = 0;
+            operand1 = '';
+            operand2 = '';
+            operator = '';
+        }
+    }
+    else {
+        if (!isNaN(Number(key))) {    
+            displayValue(key);
+        }
+        else if (key === "Backspace") {
+            resetOrangeOperator();
+            input.value = 0;
+            operand1 = '';
+            operand2 = '';
+            operator = '';
+        }
+        else if (key === 's') {
+            input.value *= -1;
+        }
+        else if (key === '.') {
+            if (!input.value.includes('.')) input.value += key;
+        }
+        else {   
+            if (key === '+') {
+                colorOrangeOperator(plusBtn);
+                handleOperator('+');
+            }
+            else if (key === '-') {
+                colorOrangeOperator(minusBtn);
+                handleOperator('-');
+            }
+            else if (key === '*') {
+                colorOrangeOperator(multiplyBtn);
+                handleOperator('x');
+            }
+            else if (key === '/') {
+                colorOrangeOperator(divideBtn);
+                handleOperator('÷');
+            }
+            else if (key === '%') {
+                resetOrangeOperator();
+                handleOperator('%');
+            }
+            else if (key === '=') {
+                resetOrangeOperator();
+                handleOperator('=');
+            }
+        }
+    }
+
+});

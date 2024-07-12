@@ -102,6 +102,7 @@ body {
 
 
 .calc-display {
+    outline: none;
     margin-bottom: 15px;
     height: 171px;
     display: flex;
